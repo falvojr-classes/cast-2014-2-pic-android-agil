@@ -1,9 +1,9 @@
 #Desenvolvimento Mobile com Android
 
-###Módulo I: Aplicações e Armazenamento de Dados
+###1ª Semana: Aplicações e Armazenamento de Dados
 
-###Módulo II: Recursos Nativos e Interoperabilidade
+###2ª Semana: Recursos Nativos e Interoperabilidade
 
-###Módulo III: Frameworks
+###3ª Semana: Frameworks
 
-###Módulo IV: Revisão e Avaliação
+###4ª Semana: Revisão e Avaliação
