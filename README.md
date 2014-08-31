@@ -4,6 +4,6 @@
 
 ####2ª Semana: Recursos Nativos e Interoperabilidade
 
-####3ª Semana: Frameworks
+####3ª Semana: Frameworks e Bibliotecas
 
 ####4ª Semana: Revisão e Avaliação
