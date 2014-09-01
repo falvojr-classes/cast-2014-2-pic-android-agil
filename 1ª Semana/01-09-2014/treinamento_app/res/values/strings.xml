@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Treinamento</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="vai">Vai!</string>
+    <string name="campo_texto">Campo Texto</string>
+    <string name="campo_imagem">Campo Imagem</string>
+
+</resources>
