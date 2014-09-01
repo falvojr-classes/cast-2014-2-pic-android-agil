@@ -26,6 +26,6 @@
 	
 	3.2. Android Annotations
 	
-	3.1. GSON e Jackson
+	3.3. GSON e Jackson
 	
 4. Revisão e Avaliação
