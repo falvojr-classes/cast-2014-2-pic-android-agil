@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Treinamento</string>
+    <string name="hello_world">Hello World</string>
+    
+    <!-- Strings usadas em menus -->
+    <string name="menu_novo">Novo</string>
+    
+    <!-- Strings usandas em hints -->
+    <string name="hint_nome">Nome</string>
+    <string name="hint_endereco">Endereço</string>
+    <string name="hint_telefone">Telefone</string>
+    <string name="hint_site">Site</string>
+    
+    <!-- Strings usadas em atributos text -->
+    <string name="text_meu_botao">Meu Botão!</string>
+    <string name="text_salvar">Salvar</string>
+    
+    <!-- Strings usadas em toasts -->
+    <string name="toast_voce_digitou">Você digitou: %s</string>
+    <string name="toast_voce_clicou_na_posicao">Você clicou na posição: %d</string>
+    <string name="toast_voce_clicou_no">Você clicou no %s</string>
+
+</resources>
