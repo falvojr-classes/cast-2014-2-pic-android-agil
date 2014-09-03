@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Treinamento</string>
+    <string name="hello_world">Hello World</string>
+    
+    <!-- Strings usadas em atributos text -->
+    <string name="text_meu_botao">Meu Botão!</string>
+    
+    <!-- Strings usadas em toasts -->
+    <string name="toast_voce_digitou">Você digitou: %s</string>
+
+</resources>
