@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.cast.treinamento.app.ContatoActivity" >
+
+    <item
+        android:id="@+id/action_editar"
+        android:title="@string/menu_editar"/>
+    <item
+        android:id="@+id/action_excluir"
+        android:title="@string/menu_excluir"/>
+
+</menu>
