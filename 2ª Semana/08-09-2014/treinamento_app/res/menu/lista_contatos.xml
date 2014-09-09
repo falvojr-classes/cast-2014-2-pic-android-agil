@@ -7,13 +7,14 @@
         android:id="@+id/action_novo"
         android:title="@string/menu_novo"
         app:showAsAction="never"/>
-    <item
-        android:id="@+id/action_editar"
-        android:title="@string/menu_editar"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/action_excluir"
-        android:title="@string/menu_excluir"
-        app:showAsAction="never"/>
-
+    <group android:id="@+id/group_selecao_obrigatoria">
+	    <item
+	        android:id="@+id/action_editar"
+	        android:title="@string/menu_editar"
+	        app:showAsAction="never"/>
+	    <item
+	        android:id="@+id/action_excluir"
+	        android:title="@string/menu_excluir"
+	        app:showAsAction="never"/>
+	</group>
 </menu>

@@ -13,12 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import br.com.cast.treinamento.app.domain.Contato;
 import br.com.cast.treinamento.app.service.ContatoService;
 import br.com.cast.treinamento.app.widget.ContatoAdapter;
+import br.com.cast.treinamento.app.widget.ContatoAdapterClickListener;
 
 /**
  * Activity responsável pela listagem e disponibilização das funcionalidades da entidade {@link Contato}.
@@ -46,20 +45,9 @@ public class ListaContatosActivity extends LifeCicleActivity {
 		
 		super.registerForContextMenu(listViewContatos);
 		
-		listViewContatos.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> adapter, View view, int posicao, long id) {
-				recuperarContatoSelecionado(adapter, posicao);
-			}
-		});
-		
-		listViewContatos.setOnItemLongClickListener(new OnItemLongClickListener() {
-			@Override
-			public boolean onItemLongClick(AdapterView<?> adapter, View view, int posicao, long id) {
-				recuperarContatoSelecionado(adapter, posicao);
-				return false;
-			}
-		});
+		ContatoAdapterClickListener listener = new ContatoAdapterClickListener(this);
+		listViewContatos.setOnItemClickListener(listener);
+		listViewContatos.setOnItemLongClickListener(listener);
 	}
 	
 	@Override
@@ -76,8 +64,11 @@ public class ListaContatosActivity extends LifeCicleActivity {
 	
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		menu.findItem(R.id.action_editar).setVisible(contatoSelecionado != null);
-		menu.findItem(R.id.action_excluir).setVisible(contatoSelecionado != null);
+		//Opção 1: findItem + setVisible
+//		menu.findItem(R.id.action_editar).setVisible(contatoSelecionado != null);
+//		menu.findItem(R.id.action_excluir).setVisible(contatoSelecionado != null);
+		//Opção 2: setGroupVisible
+		menu.setGroupVisible(R.id.group_selecao_obrigatoria, contatoSelecionado != null);
 		return super.onPrepareOptionsMenu(menu);
 	}
 	
@@ -89,7 +80,8 @@ public class ListaContatosActivity extends LifeCicleActivity {
 	
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-		getMenuInflater().inflate(R.menu.lista_contatos_context, menu);
+		getMenuInflater().inflate(R.menu.lista_contatos, menu);
+		menu.findItem(R.id.action_novo).setVisible(false);
 		super.onCreateContextMenu(menu, v, menuInfo);
 	}
 	
@@ -99,7 +91,7 @@ public class ListaContatosActivity extends LifeCicleActivity {
 		return super.onContextItemSelected(item);
 	}
 
-	private void recuperarContatoSelecionado(AdapterView<?> adapter, int posicao) {
+	public void recuperarContatoSelecionado(AdapterView<?> adapter, int posicao) {
 		contatoSelecionado = (Contato) adapter.getItemAtPosition(posicao);
 	}
 	
