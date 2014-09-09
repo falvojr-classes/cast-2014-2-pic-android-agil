@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/PaddingLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="br.com.cast.treinamento.app.ContatoActivity" >
+
+    <EditText
+        android:id="@+id/txtNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_nome"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/txtEndereco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_endereco"
+        android:inputType="textPostalAddress" />
+
+    <EditText
+        android:id="@+id/txtSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_site"
+        android:inputType="textUri" />
+
+    <EditText
+        android:id="@+id/txtTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_telefone"
+        android:inputType="phone" />
+
+    <RatingBar
+        android:id="@+id/ratingBarRelevancia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:numStars="@integer/numero_estrelas" />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:text="@string/text_salvar" />
+
+</LinearLayout>
