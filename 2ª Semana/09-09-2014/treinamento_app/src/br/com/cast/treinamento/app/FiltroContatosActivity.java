@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import br.com.cast.treinamento.app.domain.Contato;
+import br.com.cast.treinamento.app.service.ContatoService;
 
 /**
  * Activity responsável pela inclusão da funcionalidade de filtro na {@link ListaContatosActivity}.
@@ -38,11 +40,20 @@ public class FiltroContatosActivity extends LifeCicleActivity {
 			@Override
 			public void onClick(View view) {
 				Intent intentLista = new Intent(FiltroContatosActivity.this, ListaContatosActivity.class);
+				
+				// Verifica se algum filtro foi informado:
 				if (!TextUtils.isEmpty(txtNome.getText()) || !TextUtils.isEmpty(txtTelefone.getText())) {
 					Contato filtroContato = new Contato();
 					filtroContato .setNome(txtNome.getText().toString());
 					filtroContato.setTelefone(txtTelefone.getText().toString());
-					intentLista.putExtra(ListaContatosActivity.CHAVE_FILTRO_CONTATO, filtroContato);
+					
+					// Verifica se existem contatos para o filtro em questão:
+					if (ContatoService.getInstancia(FiltroContatosActivity.this).contarPorFiltro(filtroContato) > 0) {
+						intentLista.putExtra(ListaContatosActivity.CHAVE_FILTRO_CONTATO, filtroContato);
+					} else {
+						Toast.makeText(FiltroContatosActivity.this, R.string.toast_nenhum_contato, Toast.LENGTH_SHORT).show();
+						return;
+					}
 				}
 				FiltroContatosActivity.super.startActivity(intentLista);
 			}

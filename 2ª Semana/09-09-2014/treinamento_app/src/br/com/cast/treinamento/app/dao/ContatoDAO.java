@@ -115,6 +115,26 @@ public final class ContatoDAO extends BaseDAO {
 		SQLiteDatabase db = super.getReadableDatabase();
 		
 		List<String> argumentosWhere = new ArrayList<>();
+		String clausulasWhere = prepararWhere(filtro, argumentosWhere);
+		
+		String orderBy = String.format("UPPER(%s)", ContatoEntity.COLUNA_NOME);	
+		Cursor cursorQuery = db.query(ContatoEntity.TABELA, ContatoEntity.COLUNAS , clausulasWhere, argumentosWhere.toArray(new String[0]), null, null, orderBy);
+		return ContatoEntity.bindContatos(cursorQuery);
+	}
+	
+	public long contarPorFiltro(Contato filtro) {
+		SQLiteDatabase db = super.getReadableDatabase();
+		
+		List<String> argumentosWhere = new ArrayList<>();
+		String clausulasWhere = prepararWhere(filtro, argumentosWhere);
+
+		String sqlCount = String.format("SELECT COUNT(*) FROM %s %s", ContatoEntity.TABELA, "".equals(clausulasWhere) ? "" : ("WHERE " + clausulasWhere));
+		Cursor cursorQuery = db.rawQuery(sqlCount, argumentosWhere.toArray(new String[0]));
+		cursorQuery.moveToFirst();
+		return cursorQuery.getLong(0);
+	}
+
+	private String prepararWhere(Contato filtro, List<String> argumentosWhere) {
 		String clausulasWhere = "";
 		if (!"".equals(filtro.getNome())) {
 			clausulasWhere += "nome LIKE ?";
@@ -124,9 +144,6 @@ public final class ContatoDAO extends BaseDAO {
 			clausulasWhere += "".equals(clausulasWhere) ? "telefone LIKE ?" : " AND telefone LIKE ?";
 			argumentosWhere.add("%" + filtro.getTelefone() + "%");
 		}
-		
-		String orderBy = String.format("UPPER(%s)", ContatoEntity.COLUNA_NOME);	
-		Cursor cursorQuery = db.query(ContatoEntity.TABELA, ContatoEntity.COLUNAS , clausulasWhere, argumentosWhere.toArray(new String[0]), null, null, orderBy);
-		return ContatoEntity.bindContatos(cursorQuery);
+		return clausulasWhere;
 	}
 }

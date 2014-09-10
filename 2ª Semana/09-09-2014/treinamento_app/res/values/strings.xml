@@ -24,6 +24,7 @@
     <string name="toast_voce_digitou">Você digitou: %s</string>
     <string name="toast_voce_clicou_na_posicao">Você clicou na posição: %d</string>
     <string name="toast_voce_clicou_no">Você clicou no %s</string>
+    <string name="toast_nenhum_contato">Nenhum contato encontrado para o filtro.</string>
 
     <!-- Strings usadas nos erros -->
     <string name="erro_preenchimento_obrigatorio">Preenchimento obrigatório</string>

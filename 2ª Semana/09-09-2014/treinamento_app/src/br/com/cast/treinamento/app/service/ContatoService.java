@@ -65,4 +65,8 @@ public final class ContatoService {
 	public List<Contato> listarPorFiltro(Contato filtro) {
 		return ContatoDAO.getInstancia(contexto).listarPorFiltro(filtro);
 	}
+	
+	public long contarPorFiltro(Contato filtro) {
+		return ContatoDAO.getInstancia(contexto).contarPorFiltro(filtro);
+	}
 }
